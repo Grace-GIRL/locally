@@ -1,0 +1,41 @@
+<!--pages/detail/detail.wxml-->
+<swiper class="slides">
+  <swiper-item class="item" wx:for="{{shop.images}}" wx:key="id">
+      <image src="{{item}}" mode="scaleToFill"></image>
+  </swiper-item>
+</swiper>
+
+<view class="info" wx:if="{{shop.name}}">
+  <text class="name">{{shop.name}}</text>
+  <text class="phone">电话：{{shop.phone}}</text>
+  <text class="address">地址：{{shop.address}}</text>
+  <text class="hours">营业时间:{{shop.businessHours}}</text>
+</view>
+
+
+<view class="comment" wx:if="{{shop.comments.length}}">
+  <view class="commentator" wx:for="{{shop.comments}}">
+    <view class="score">{{item.rating}}</view>
+    <view class="baseInfo">
+      <view class="name">{{item.name}}</view>
+      <view class="data">{{item.data}}</view>
+    </view>
+    <view class="content">{{item.content}}</view>
+    <view class="pics">
+
+          <image wx:for="{{item.images}}" src="{{util.size(item)}}"/>
+    </view>
+  </view>
+</view>
+<!-- 解决爬虫爬过来的图片链接不显示的问题 根据宽高显示 http://p0.meituan.net/w.h/shaitu/4ffbaec3f82fe3b4240aedb22fee22e5267105.jpg -->
+
+<wxs module="util">
+  module.exports={
+    size:function(input){
+      return input.replace('w.h','100.100')
+    }
+  
+  }
+
+</wxs>
+

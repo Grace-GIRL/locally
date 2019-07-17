@@ -1,0 +1,11 @@
+{
+    "usingComponents": {},
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "最新消息",
+    "backgroundColor": "#f8f9fb",
+    "backgroundTextStyle": "light",
+    "enablePullDownRefresh": false,
+    "onReachBottomDistance": 50
+
+}
